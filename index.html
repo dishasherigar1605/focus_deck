@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="app-header">
+    <span class="eyebrow">Focus Deck</span>
+    <h1>One card at a time.</h1>
+  </header>
+
+  <main class="deck">
+
+    <section class="timer-card">
+      <div class="mode-tabs" role="tablist" aria-label="Session type">
+        <button class="mode-tab is-active" data-mode="focus" role="tab" aria-selected="true">Focus</button>
+        <button class="mode-tab" data-mode="short" role="tab" aria-selected="false">Short break</button>
+        <button class="mode-tab" data-mode="long" role="tab" aria-selected="false">Long break</button>
+      </div>
+
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 240 240" aria-hidden="true">
+          <circle class="ring-track" cx="120" cy="120" r="108"></circle>
+          <circle class="ring-progress" cx="120" cy="120" r="108"></circle>
+        </svg>
+        <div class="ring-center">
+          <span class="time" id="timeDisplay">25:00</span>
+          <span class="session-label" id="sessionLabel">Focus session</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn btn-ghost" id="resetBtn" aria-label="Reset timer">Reset</button>
+        <button class="btn btn-primary" id="startBtn">Start</button>
+        <button class="btn btn-ghost" id="skipBtn" aria-label="Skip to next session">Skip</button>
+      </div>
+
+      <div class="tally" id="tally" aria-label="Completed focus sessions">
+        <span class="tally-label">Sessions today</span>
+        <div class="tally-dots" id="tallyDots"></div>
+      </div>
+    </section>
+
+    <section class="task-card">
+      <div class="task-header">
+        <h2>On the table</h2>
+        <span class="task-count" id="taskCount">0 open</span>
+      </div>
+
+      <form class="task-form" id="taskForm">
+        <input type="text" id="taskInput" placeholder="What are you working on?" autocomplete="off" maxlength="80">
+        <button type="submit" class="btn btn-add" aria-label="Add task">Add</button>
+      </form>
+
+      <ul class="task-list" id="taskList"></ul>
+
+      <p class="task-empty" id="taskEmpty">Nothing on the table yet. Add something to work on this session.</p>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Pick a task, flip the timer, work the card. Tasks and counts reset when you close the tab.</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
